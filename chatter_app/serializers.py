@@ -14,3 +14,14 @@ class CommentSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class PatterSerializer(serializers.ModelSerializer):
+    likes = LikeSerializer(Many=True, read_only=True)
+    comments = CommentSerializer(Many=True, read_only=True)
+
+    class Meta:
+        model = Tweet
+        fields = ('id', 'content', 'image_url', 'likes', 'comments')
+
+
+
+
