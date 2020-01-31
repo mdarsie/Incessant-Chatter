@@ -11,6 +11,7 @@ class User(models.Model):
     def __str__(self):
         return self.handle
 
+
 class Patter(models.Model):
     content = models.CharField(max_length=240)
     image_url = models.TextField(default='')
@@ -18,6 +19,7 @@ class Patter(models.Model):
 
     def __str__(self):
         return self.content
+
 
 class Comment(models.Model):
     content = models.CharField(max_length=240)
@@ -27,6 +29,7 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.content
+
 
 class Like(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_likes')
