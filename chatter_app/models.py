@@ -11,3 +11,7 @@ class User(models.Model):
     def __str__(self):
         return self.handle
 
+class Patter(models.Model):
+    content = models.CharField(max_length=240)
+    image_url = models.TextField(default='')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='prattle')
