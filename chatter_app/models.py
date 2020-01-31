@@ -15,3 +15,16 @@ class Patter(models.Model):
     content = models.CharField(max_length=240)
     image_url = models.TextField(default='')
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='prattle')
+
+    def __str__(self):
+        return self.content
+
+class Comment(models.Model):
+    content = models.CharField(max_length=240)
+    image_url = models.TextField(default='')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='replies')
+    tweet = models.ForeignKey(Tweet, on_delete=models.CASCADE, related_name='comments')
+
+    def __str__(self):
+        return self.content
+
