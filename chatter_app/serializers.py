@@ -19,9 +19,15 @@ class PatterSerializer(serializers.ModelSerializer):
     comments = CommentSerializer(Many=True, read_only=True)
 
     class Meta:
-        model = Tweet
+        model = Patter
         fields = ('id', 'content', 'image_url', 'likes', 'comments')
 
 
+class UserSerializer(serializers.ModelSerializer):
+    patter = PatterSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = User
+        fields = ('id', 'name', 'handle', 'bio', 'picture_url', 'is_verified', 'patter')
 
 
