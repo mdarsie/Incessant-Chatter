@@ -23,14 +23,14 @@ class Comment(models.Model):
     content = models.CharField(max_length=240)
     image_url = models.TextField(default='')
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='replies')
-    tweet = models.ForeignKey(Tweet, on_delete=models.CASCADE, related_name='comments')
+    tweet = models.ForeignKey(Patter, on_delete=models.CASCADE, related_name='comments')
 
     def __str__(self):
         return self.content
 
 class Like(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_likes')
-    tweet = models.ForeignKey(Tweet, on_delete=models.CASCADE, related_name='likes')
+    tweet = models.ForeignKey(Patter, on_delete=models.CASCADE, related_name='likes')
 
     def __str__(self):
         return 'like'
