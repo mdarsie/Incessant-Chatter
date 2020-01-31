@@ -15,8 +15,8 @@ class CommentSerializer(serializers.ModelSerializer):
 
 
 class PatterSerializer(serializers.ModelSerializer):
-    likes = LikeSerializer(Many=True, read_only=True)
-    comments = CommentSerializer(Many=True, read_only=True)
+    likes = LikeSerializer(many=True, read_only=True)
+    comments = CommentSerializer(many=True, read_only=True)
 
     class Meta:
         model = Patter
