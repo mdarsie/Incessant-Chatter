@@ -19,7 +19,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Hello World</h1>
+        <h1>Incessant Chatter</h1>
+        <div>
+            <textarea class='new-patter-input' placeholder='Who cares?'/>
+            <button>Patter</button>
         {this.state.patter.map(patter => {
           return <div>{patter.content}</div>;
         })}
