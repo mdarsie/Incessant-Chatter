@@ -10,7 +10,7 @@ class App extends React.Component {
   async componentDidMount() {
     try {
       const response = await axios.get("/api/v1/patter");
-      this.setState({ patter: res.data });
+      this.setState({ patter: response.data });
     } catch (err) {
       console.log("failed to retrieve patter");
     }

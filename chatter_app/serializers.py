@@ -14,20 +14,21 @@ class CommentSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class UserSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = ('id', 'name', 'handle', 'bio', 'picture_url', 'is_verified')
+
+
 class PatterSerializer(serializers.ModelSerializer):
     likes = LikeSerializer(many=True, read_only=True)
     comments = CommentSerializer(many=True, read_only=True)
+    user = UserSerializer(many=False, read_only=True)
 
     class Meta:
         model = Patter
         fields = ('id', 'content', 'image_url', 'likes', 'comments')
 
-
-class UserSerializer(serializers.ModelSerializer):
-    patter = PatterSerializer(many=True, read_only=True)
-
-    class Meta:
-        model = User
-        fields = ('id', 'name', 'handle', 'bio', 'picture_url', 'is_verified', 'patter')
 
 
